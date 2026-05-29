@@ -1,9 +1,9 @@
 <<<<<<< HEAD
 # Proyek Kelompok Sijayam
 =======
-# 🚀 Sijayam (Sistem Belanja Ayam)
+#  Sijayam (Sistem Belanja Ayam)
 
-## 📖 Deskripsi Singkat
+##  Deskripsi Singkat
 Sijayam adalah aplikasi pemesanan makanan/barang berbasis digital yang memudahkan pelanggan untuk melihat katalog menu, melakukan pemesanan (order), dan memproses pembayaran secara terintegrasi.
 
 ## 👥 Tim Pengembang (Anggota & Peran)
