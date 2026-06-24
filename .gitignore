@@ -1,6 +1,1 @@
-#Plaintext
 .env
-_pycache_/
-*.pyc
-*.log
-venv/
