@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend-sijayam:
     build:
@@ -10,14 +8,5 @@ services:
     env_file:
       - .env
     volumes:
-      # Menggunakan konfigurasi terbaru dari rekan tim Anda
+      Memetakan folder lokal ke kontainer menggunakan Bind Mount
       - ./logs:/app/writable/logs
-    
-  frontend-sijayam:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    ports:
-      - "80:80"
-    env_file:
-      - .env
