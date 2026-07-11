@@ -1,4 +1,18 @@
 services:
+  # Service Database dengan Named Volume
+  db-sijayam:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
   backend-sijayam:
     build:
       context: .
@@ -8,5 +22,20 @@ services:
     env_file:
       - .env
     volumes:
-      Memetakan folder lokal ke kontainer menggunakan Bind Mount
+      # Bind Mount untuk log
       - ./logs:/app/writable/logs
+    depends_on:
+      - db-sijayam
+
+  frontend-sijayam:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+
+# Definisi Named Volume
+volumes:
+  db_data:
