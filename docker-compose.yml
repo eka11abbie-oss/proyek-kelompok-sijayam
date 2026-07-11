@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend-sijayam:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    
+  frontend-sijayam:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    env_file:
+      - .env
