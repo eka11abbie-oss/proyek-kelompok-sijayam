@@ -9,6 +9,9 @@ services:
       - "8080:8080"
     env_file:
       - .env
+    volumes:
+      # Menggunakan konfigurasi terbaru dari rekan tim Anda
+      - ./logs:/app/writable/logs
     
   frontend-sijayam:
     build:
