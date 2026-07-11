@@ -1,0 +1,12 @@
+services:
+  backend-sijayam:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      # INI TUGAS LU: Memetakan folder lokal ke kontainer menggunakan Bind Mount
+      - ./logs:/app/writable/logs
