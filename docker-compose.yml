@@ -10,9 +10,9 @@ services:
     env_file:
       - .env
     volumes:
-      # Menggunakan konfigurasi terbaru dari rekan tim Anda
+      # Product Lead
       - ./logs:/app/writable/logs
-    
+
   frontend-sijayam:
     build:
       context: .
@@ -21,3 +21,6 @@ services:
       - "80:80"
     env_file:
       - .env
+    volumes:
+      # Frontend Developer (Bind Mount folder asset)
+      - ./sijayam-app/public/asset:/usr/share/nginx/html/sijayam-app/public/asset
