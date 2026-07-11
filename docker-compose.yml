@@ -5,28 +5,24 @@ services:
   # SERVICE FRONTEND
   # -------------------------------------
   frontend-sijayam:
-    # TUGAS M14: Menggunakan image produksi dari GitHub Registry
-    image: ghcr.io/[GANTI_DENGAN_USERNAME_GITHUB_KELOMPOK]/proyek-kelompok-sijayam-fe:v1.0.0
+    image: ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-fe:v1.0.0
     ports:
       - "80:80"
     env_file:
       - .env
     volumes:
-      # Bind Mount untuk aset lokal
       - ./public/assets:/usr/share/nginx/html/assets
 
   # -------------------------------------
   # SERVICE BACKEND
   # -------------------------------------
   backend-sijayam:
-    # TUGAS M14: Menggunakan image produksi dari GitHub Registry
-    image: ghcr.io/[GANTI_DENGAN_USERNAME_GITHUB_KELOMPOK]/proyek-kelompok-sijayam-be:v1.0.0
+    image: ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-be:v1.0.0
     ports:
       - "8080:8080"
     env_file:
       - .env
     volumes:
-      # Memetakan folder lokal ke kontainer menggunakan Bind Mount
       - ./logs:/app/writable/logs
 
   # -------------------------------------
@@ -37,9 +33,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=rahasia
     volumes:
-      # Named Volume untuk data DB
       - db-data:/var/lib/postgresql/data 
 
 volumes:
-  # Definisi named volume global
   db-data:
