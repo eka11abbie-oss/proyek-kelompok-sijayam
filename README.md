@@ -11,3 +11,6 @@ Sijayam adalah aplikasi pemesanan makanan/barang berbasis digital yang memudahka
 * **[DARMA ROMEO AN     : 2313020268]** - Backend Developer
 * **[RIVALDO OKTAVIAN R : 2313020240]** - Frontend Developer
 
+- **Frontend:** `ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-fe:v1.0.0`
+- **Backend:** `ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-be:v1.0.0`
+
