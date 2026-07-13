@@ -1,19 +1,17 @@
-FROM php:8.2-cli
+# Gunakan image dasar PHP yang stabil
+FROM php:8.2-fpm
 
-RUN apt-get update && apt-get install -y \
-    libicu-dev \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-install intl mysqli pdo pdo_mysql
+# Label agar GitHub mengenali registry Anda
+LABEL org.opencontainers.image.source=https://github.com/eka11abbie-oss/proyek-kelompok-sijayam
 
-# [TUGAS E.1] - Menentukan variabel lingkungan database
-ENV DB_HOST=localhost
-ENV DB_PORT=3306
-
+# Set direktori kerja
 WORKDIR /app
 
-# PERUBAHAN DI SINI: Kita arahkan Docker buat ngambil isi folder sijayam-app
-COPY ./sijayam-app .
+# Copy file proyek Anda ke dalam container
+COPY . .
 
+# Expose port (biasanya 8080 untuk API)
 EXPOSE 8080
 
-CMD ["php", "spark", "serve", "--host", "0.0.0.0", "--port", "8080"]
+# Jalankan server
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
