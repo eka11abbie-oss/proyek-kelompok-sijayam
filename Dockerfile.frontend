@@ -1,12 +1,12 @@
 FROM nginx:alpine
 
-# [TUGAS E.2] - Menentukan variabel untuk alamat API
+# API Backend URL
 ENV API_URL=http://localhost:8080
 
 WORKDIR /usr/share/nginx/html
 
-# Mengambil file frontend dari root
-COPY . .
+# Copy hanya file frontend
+COPY sijayam-app .
 
 EXPOSE 80
 
