@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   backend:
     image: ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-be:v1.0.0
@@ -9,6 +8,8 @@ services:
     env_file:
       - .env.production
     restart: always
+    depends_on:
+      - db-server # BE menambahkan ini agar backend menunggu database siap
 
   frontend:
     image: ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-fe:v1.0.0
@@ -18,3 +19,14 @@ services:
     depends_on:
       - backend
     restart: always
+
+  # BE MENAMBAHKAN BAGIAN INI:
+  db-server:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_PASSWORD=rahasia
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
