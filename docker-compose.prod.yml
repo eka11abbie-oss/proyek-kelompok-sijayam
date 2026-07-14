@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-be:v1.0.0
+    container_name: sijayam-be-prod
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env.production
+    restart: always
+
+  frontend:
+    image: ghcr.io/eka11abbie-oss/proyek-kelompok-sijayam-fe:v1.0.0
+    container_name: sijayam-fe-prod
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
