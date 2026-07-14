@@ -32,6 +32,7 @@ class SijayamTables extends Migration
             'description' => ['type' => 'TEXT', 'null' => true],
             'price' => ['type' => 'DECIMAL', 'constraint' => '10,2'],
             'image_url' => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
+            'category' => ['type' => 'VARCHAR', 'constraint' => 50, 'default' => 'ayam'], // KOLOM BARU
             'created_at' => ['type' => 'DATETIME', 'null' => true],
             'updated_at' => ['type' => 'DATETIME', 'null' => true],
         ]);

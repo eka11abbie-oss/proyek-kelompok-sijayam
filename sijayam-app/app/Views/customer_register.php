@@ -3,56 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Akun - Sijayam</title>
+    <title>Register - Sijayam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-white min-h-screen flex">
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
 
-    <div class="w-full md:w-1/2 flex flex-col p-8 md:p-12 relative h-screen">
+    <div class="bg-white rounded-3xl shadow-xl w-full max-w-md p-8 flex flex-col">
         
-        <div class="flex-grow flex flex-col justify-center max-w-md mx-auto w-full">
-            <h2 class="text-3xl font-bold text-gray-900 mb-2 text-left">Buat Akun Baru</h2>
-            <p class="text-gray-500 text-sm mb-8">Daftar sekarang untuk mulai memesan makanan favorit Anda.</p>
+        <div class="flex justify-center mb-4">
+            <img src="https://illustrations.popsy.co/red/surreal-hourglass.svg" alt="Register Illustration" class="h-40 object-contain">
+        </div>
 
-            <form action="<?= base_url('customer/register/process') ?>" method="POST">
-                
-                <div class="mb-5">
-                    <label for="username" class="block text-xs font-semibold text-gray-700 mb-2">Username</label>
-                    <input type="text" id="username" name="username" required 
-                        class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-all text-sm duration-200" 
-                        placeholder="Pilih username unik Anda">
-                </div>
+        <h1 class="text-3xl font-bold text-center text-gray-900 mb-6">Register</h1>
 
-                <div class="mb-8">
-                    <label for="password" class="block text-xs font-semibold text-gray-700 mb-2">Password</label>
-                    <input type="password" id="password" name="password" required 
-                        class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-all text-sm duration-200" 
-                        placeholder="Minimal 8 karakter">
-                </div>
+        <div class="mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Create Account</h2>
+            <p class="text-sm text-gray-400">join us and start ordering</p>
+        </div>
 
-                <button type="submit" class="w-full bg-[#111827] hover:bg-black text-white font-semibold py-3 px-4 rounded-lg transition-colors shadow-md">
-                    Sign up
-                </button>
-            </form>
-
-            <div class="mt-8 text-center text-sm text-gray-500">
-                Already have an account? 
-                <a href="<?= base_url('/') ?>" class="text-blue-600 font-medium hover:underline">Sign in</a>
+        <form action="<?= base_url('customer/register/process') ?>" method="POST" class="flex flex-col gap-4">
+            
+            <div>
+                <label for="username" class="block text-xs font-bold text-gray-700 mb-2">Username Baru</label>
+                <input type="text" id="username" name="username" required 
+                    class="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:border-red-500 focus:bg-white focus:ring-0 text-sm transition-all" 
+                    placeholder="Pilih username unik">
             </div>
-        </div>
 
-        <div class="text-center text-xs text-gray-400 pb-2">
-            © 2023 ALL RIGHTS Sijayam
-        </div>
-    </div>
+            <div>
+                <label for="password" class="block text-xs font-bold text-gray-700 mb-2">Password</label>
+                <input type="password" id="password" name="password" required 
+                    class="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:border-red-500 focus:bg-white focus:ring-0 text-sm transition-all" 
+                    placeholder="Minimal 8 karakter">
+            </div>
 
-    <div class="hidden md:block w-1/2 p-4 h-screen">
-        <div class="w-full h-full rounded-[2rem] overflow-hidden relative shadow-xl bg-cover bg-center"
-             style="background-image: url('/asset/Logasset .png');">
+            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl mt-4 transition-colors shadow-lg shadow-red-600/30">
+                Sign Up
+            </button>
+        </form>
+
+        <div class="mt-8 text-center text-sm font-medium text-gray-500">
+            Already have an account? 
+            <a href="<?= base_url('/') ?>" class="text-red-600 hover:underline">Login here</a>
         </div>
     </div>
 

@@ -8,6 +8,7 @@ class MenuModel extends Model
     protected $table            = 'menus';
     protected $primaryKey       = 'id';
     protected $returnType       = 'array';
-    protected $allowedFields    = ['name', 'description', 'price', 'image_url'];
+    protected $allowedFields = ['name', 'description', 'price', 'image_url', 'category'];
     protected $useTimestamps    = true; // Karena kita pakai created_at dan updated_at
+    
 }

@@ -89,30 +89,27 @@ class Dashboard extends BaseController
     }
     public function orders()
     {
-        if (!session()->get('isLoggedIn')) return redirect()->to('/login');
+        $orderModel = new \App\Models\OrderModel();
+        $orderItemModel = new \App\Models\OrderItemModel();
 
-        $orderModel = new OrderModel();
-        $orderItemModel = new OrderItemModel();
+        // Ambil semua pesanan, urutkan dari yang terbaru
+        $orders = $orderModel->orderBy('created_at', 'DESC')->findAll();
 
-        // [BARU] Melakukan JOIN ke tabel users untuk mengambil username
-        $orders = $orderModel->select('orders.*, users.username')
-                             ->join('users', 'users.id = orders.user_id', 'left')
-                             ->orderBy('orders.created_at', 'DESC')
-                             ->findAll();
-
+        // Ambil rincian item untuk masing-masing pesanan beserta NAMA MENU-nya
         foreach ($orders as &$order) {
+            // Kita gunakan JOIN ke tabel menus untuk mengambil kolom 'name'
             $order['items'] = $orderItemModel->select('order_items.*, menus.name')
-                                             ->join('menus', 'menus.id = order_items.menu_id', 'left')
+                                             ->join('menus', 'menus.id = order_items.menu_id')
                                              ->where('order_id', $order['id'])
                                              ->findAll();
         }
 
         $data = [
-            'title'  => 'Pesanan Masuk - Sijayam Admin',
             'orders' => $orders
         ];
 
-        return view('orders', $data);
+        // Arahkan ke file view admin_orders.php
+        return view('admin_orders', $data); 
     }
 
     public function updateOrderStatus($id)
